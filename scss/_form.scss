@@ -1,0 +1,266 @@
+.roundfield input[type=url],
+.roundfield input[type=text],
+.pretty-form input[type=text],
+input[type=password],
+input[type=text] {
+  @extend %text-input;
+}
+
+.roundfield textarea,
+textarea {
+  @extend %text-box;
+}
+
+.subreddit-report-form {
+  @extend %bubble;
+  border: none;
+  @include shadow(inset 0 1px 0 lighten($bubble-bg, 10%), 0 1px 2px darken($content-bg, 3%));
+
+  .report-reason-item {
+    .report-reason-display {
+      overflow: visible;
+    }
+  }
+
+  input[disabled] {
+    color: darken($bubble-bg, 5%);
+    background: lighten($bubble-bg, 3%);
+    text-shadow: 0 1px 0 lighten($bubble-bg, 9%);
+  }
+}
+
+.infobar {
+  @extend %info-box;
+}
+
+// .submit-page > .content {
+//   text-align: center;
+// }
+
+.tabmenu.formtab {
+  position: absolute;
+  right: 0;
+  top: -30px;
+
+  li {
+    display: inline-block;
+    margin: 0 3px;
+
+    &,
+    &.selected {
+      a {
+        @extend %form-box-tab;
+        display: block;
+        font-size: 13px;
+      }
+    }
+
+    // a {
+    //   color: darken($main-fg, 20%);
+    // }
+
+    &.selected a {
+      @extend %form-box-tab-active;
+      // color: $main-fg;
+    }
+  }
+}
+
+.submit-page > .content,
+.fancy-settings {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.submit-page > .content {
+  > h1 {
+    @extend %form-box-title;
+    width: $form-width;
+    margin-top: 20px;
+  }
+}
+
+#newlink.submit {
+  width: $form-width;
+  position: relative;
+  margin: 0;
+
+  // textarea {
+  //   resize: vertical;
+  // }
+}
+
+.formtabs-content {
+  @extend %form-box;
+  display: block;
+  border-top: none;
+  // width: auto;
+  // float: left;
+  // clear: left;
+  @include rounded(0 0 4px 4px);
+  // background: none;
+  // border: solid 1px darken($content-bg, 4%);
+  // padding: 10px;
+  // @include rounded(3px);
+  // @include shadow(inset 1px 1px 0 lighten($content-bg, 5%), 1px 1px 0 lighten($content-bg, 5%));
+
+  // .infobar {
+  //   max-width: $submit-form-w
+  // }
+  // padding: 8px;
+  // border: solid 1px darken($content-bg, 3%);
+  // @include shadow(inset 1px 1px 0 lighten($content-bg, 5%), 1px 1px 0 lighten($content-bg, 5%));
+
+  // @include shadow(inset 0 1px 0 lighten($bubble-bg, 10%));
+}
+
+.roundfield {
+  // width: auto;
+  background: none !important;
+  border: none !important;
+
+  // &.info-notice {
+  //   max-width: 500px;
+  // }
+}
+
+#suggested-reddits {
+  max-width: 500px;
+}
+
+.flairselector.drop-choices.active {
+  @extend %menu;
+}
+
+.flairoptionpane li {
+  @extend %menu-entry;
+}
+
+.usertext-edit {
+  width: auto;
+}
+
+.linefield {
+  padding: 0;
+  position: relative;
+  width: auto;
+  float: left;
+  clear: left;
+  // display: inline-block;
+
+  &.flair-jump {
+    float: none;
+    button {
+      font-size: small;
+      margin-left: 5px;
+    }
+  }
+
+  &,
+  &.mobile {
+    background: none;
+    border: none;
+  }
+
+  > .title {
+    @extend %form-box-title;
+  }
+
+  > .little.gray {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+  // @extend %form-box;
+
+
+  .linefield-content {
+    @extend %form-box;
+    border-top: none;
+    @include rounded(0 0 4px 4px);
+  }
+
+  .delete-field {
+    margin: 5px 0;
+    max-width: $form-width;
+  }
+
+  .usertext-edit {
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+
+  input[type=text],
+  textarea {
+    border-color: rgba(0, 0, 0, 0.3) !important;
+    @include shadow(0 1px 0 rgba(255, 255, 255, 0.1), inset 0 2px 2px rgba(0, 0, 0, 0.2));
+  }
+}
+
+.save-button {
+  clear: left;
+  button {
+    @extend %button;
+  }
+}
+
+.tabpane-content {
+  @extend %form-box;
+  margin: 0 20px 20px 20px;
+}
+
+.flair-settings + .tabmenu {
+  display: block;
+  margin: 0 0 3px 30px;
+  font-size: small;
+
+  li {
+    display: inline-block;
+    font-weight: normal;
+// #tab-grant,
+// #tab-templates,
+// #tab-link_templates {
+    a {
+      @extend %form-box-tab;
+    }
+
+    &.selected a {
+      @extend %form-box-tab-active;
+    }
+  }
+}
+
+.flaircell {
+  &.narrow {
+    width: 2ex;
+  }
+}
+
+.header {
+  &.tagline {
+    width: 25ex;
+  }
+}
+
+
+.drop-choices {
+  @extend %menu;
+
+  a.choice {
+    @extend %menu-entry;
+  }
+}
+// .dropdown {
+//   &.lightdrop {
+//     .selected {
+//       background: none;
+//       &:after {
+//         @extend %icon;
+//         content: '';
+//         background-position: $icon-caret-down;
+//       }
+//     }
+//   }
+// }

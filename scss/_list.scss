@@ -1,0 +1,303 @@
+.linklisting {
+  padding-top: 10px;
+  margin-left: 43px;
+  border-left: dashed 1px $guide-line-color;
+}
+
+.thing {
+  position: relative;
+
+  &.spam {
+    background: none !important;
+  }
+}
+
+.link {
+  padding: 0 0 0 5px;
+  margin: 15px 10px 10px 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: -9px;
+    top: 15px;
+    width: 7px;
+    height: 7px;
+    background: $guide-line-color;
+    border: solid 5px $content-bg;
+    @include rounded(100%);
+  }
+
+  &.last-clicked {
+    border: none;
+    overflow: visible;
+
+    &:before {
+      background: lighten($guide-line-color, 20%);
+      // border-color: lighten($guide-line-color, 3%);
+      // background: $content-bg;
+    }
+  }
+
+  &.reported {
+    &:before {
+      border-color: $action-negative-color;
+    }
+  }
+
+  &.thing.stickied {
+    a.title {
+      color: $stickied-link-fg;
+      font-weight: normal;
+    }
+  }
+
+  a.title {
+    vertical-align: middle;
+    color: $link-fg;
+
+    &.visited, // res
+    &:visited {
+      color: $visited-link-fg;
+    }
+  }
+
+  .tagline {
+    margin-top: 3px;
+  }
+
+  .midcol {
+    text-align: center;
+    margin-right: 15px;
+  }
+
+  .score {
+    margin: 0;
+    color: lighten($c02, 20%);
+
+    &.dislikes {
+      color: $c11 !important;
+    }
+
+    &.likes {
+      color: $c10 !important;
+    }
+  }
+
+  .rank {
+    // display: none;
+    position: absolute;
+    color: $guide-line-color;//lighten($content-bg, 10%);
+    text-align: right;
+    font-size: 15px;
+    font-weight: bold;
+    left: -45px;
+    top: 15px;
+    margin: 0 !important;
+    width: 33px !important;
+    // margin: 17px 0 0 5px;
+  }
+
+  .usertext-body .md {
+    @extend %bubble;
+    border: none;
+    padding: 10px;
+  }
+
+  // res
+  &.RES-keyNav-activeThing {
+    &:before {
+      background: $res-active-element-color !important;
+    }
+
+    .rank {
+      color: $res-active-element-color;
+    }
+  }
+
+  // res
+  .entry.RES-keyNav-activeElement {
+    &,
+    .md-container {
+      background: none !important;
+    }
+  }
+}
+
+.arrow {
+  margin: 0;
+
+  &.up,
+  &.upmod,
+  &.down,
+  &.downmod {
+    @extend %small-icon;
+  }
+
+  &.up {
+    background-position: $icon-chevron-up;
+  }
+
+  &.upmod {
+    background-position: $icon-chevron-up-active;
+  }
+
+  &.down {
+    background-position: $icon-chevron-down;
+  }
+
+  &.downmod {
+    background-position: $icon-chevron-down-active;
+  }
+}
+
+.tagline {
+  font-size: small;
+  a {
+    color: $link-fg;
+
+    &.submitter {
+      color: $author-link-fg;
+    }
+
+    &.moderator {
+      color: $mod-link-fg;
+    }
+  }
+
+  .stickied-tagline {
+    color: inherit;
+  }
+}
+
+// res
+.res .thing .tagline .author {
+  padding: 0 4px;
+  @include rounded(2px);
+
+  &.moderator {
+    background-color: darken($mod-link-fg, 25%) !important;
+  }
+
+  &.submitter {
+    background-color: darken($author-link-fg, 30%) !important;
+  }
+}
+
+.thumbnail {
+  // width: 78px;
+  margin: 3px 10px 0 0;
+  font-size: small;
+  // padding: 5px;
+  // background: desaturate(darken($accent, 40%), 20%);
+  // @include shadow(inset 1px 1px 0 lighten($content-bg, 15%));
+
+  &.self {
+    display: none;
+  }
+
+  &.default,
+  &.nsfw {
+    background: none;
+    color: darken($main-fg, 30%);
+    border: dashed 1px lighten($content-bg, 10%);
+    // display: none;
+  }
+
+  img {
+    display: block;
+    // @include shadow(1px 2px 2px darken($content-bg, 5%));
+  }
+}
+
+
+.nsfw-stamp {
+  // background: none;
+  // border: none;
+  // padding: 0;
+  // display: inline;
+  // color: $nsfw-tag-fg;
+  // text-transform: lowercase;
+  // font-size: small;
+
+  // &:before {
+  //   content: '[';
+  // }
+
+  // &:after {
+  //   content: ']';
+  // }
+  border: none;
+  color: $nsfw-tag-fg;
+  background: $nsfw-tag-bg;
+  @include rounded(2px);
+}
+
+.link .flat-list {
+  margin-top: 4px;
+}
+
+// FIXME: the whole flat list sucks
+.flat-list.buttons {
+  font-size: small;
+  li {
+    a,
+    .redditSingleClick { // res
+      font-weight: normal;
+    }
+
+    &.reported-stamp {
+      @extend %button;
+      // outline: dashed 1px $c0a;
+      // font-weight: bold;
+      border: none !important;
+    }
+  }
+}
+
+ul.report-reasons {
+  @extend %bubble;
+  border: none;
+}
+
+// res
+.userTagLink.hasTag,
+.voteWeight {
+  opacity: 0.4;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.reddit-infobar {
+  @extend %info-box;
+  position: absolute;
+  top: 0;
+  left: 90px;
+  right: 10px;
+  margin: 0;
+  @include rounded(0 0 3px 3px);
+  // margin: -10px 10px 10px 90px;
+
+  &.locked-infobar {
+    background-color: $locked-post-bg;
+  }
+
+  // &.archived-infobar {
+  //   background-color: $archived-post-bg;
+  // }
+
+  &.with-icon {
+    &:before {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  ~ .linklisting {
+    padding-top: 35px;
+  }
+
+  .md {
+    color: $main-fg;
+  }
+}

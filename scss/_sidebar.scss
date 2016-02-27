@@ -1,0 +1,656 @@
+// this file is a mess because i never had
+// any idea what exactly i want to create.
+
+.side {
+  position: relative;
+  margin: 0;
+  // margin: 0 15px 0 15px;
+  // position: relative;
+  background: none;
+  // background: darken($main-bg, 2%);
+  padding: 10px 15px;
+  // z-index: 2;
+
+  .spacer {
+    margin: 0;
+
+    &:first-child {
+      height: $sidebar-photo-height;
+      background: url($sidebar-image) left top no-repeat;
+      overflow: hidden;
+      position: relative;
+      border: solid 1px darken($main-bg, 3%);
+      margin-bottom: 10px;
+      @include shadow(inset 1px 1px 0 rgba(255, 255, 255, 0.1));
+      @include rounded(4px);
+
+      // &:after {
+      //   content: '';
+      //   position: absolute;
+      //   z-index: 100000;
+      //   width: 1px;
+      //   background: red;
+      //   top: 0;
+      //   bottom: 0;
+      //   left: ($sidebar-width / 2);
+      // }
+
+    }
+  }
+
+  .md {
+    blockquote {
+      position: absolute;
+      height: $sidebar-photo-height - 15;
+      top: 20px;
+      left: 25px;
+      right: 25px;
+      margin: 0;
+      padding: 0;
+      background: none;
+      border: none;
+      overflow: hidden;
+    }
+
+    a[href="#top"] {
+      position: absolute;
+      bottom: 10px;
+      left: 110%;
+      color: $main-fg !important;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+      transition: left .3s;
+      outline: none !important;
+      padding: 3px 10px;
+      background: rgba(0, 0, 0, 0.4);
+      // border: solid 1px rgba(0, 0, 0, 0.2);
+      @include rounded(3px);
+      // @include linear-gradient(top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+      // @include shadow(inset 0 1px 1px rgba(255, 255, 255, 0.2));
+    }
+
+    // h4,
+    h5,
+    h6 {
+      position: absolute;
+      font-size: 0;
+      z-index: $z-circle;
+
+      > a {
+        display: block;
+        position: relative;
+        width: 90px;
+        height: 90px;
+        background: rgba(0, 0, 0, 0.3);
+        border: solid 3px rgba(255, 255, 255, 0.2);
+        transition: width .3s, height .3s, opacity .3s;
+        outline: none !important;
+        color: $main-fg !important;
+        @include rounded(100%);
+
+        &:after {
+          @extend %big-icon;
+          content: '';
+          position: absolute;
+          // width: 55px;
+          // height: 55px;
+          top: 17px;
+          left: 17px;
+          // background-image: url($sidebar-image);
+          // background-repeat: no-repeat;
+        }
+
+        &:before {
+          display: none;
+          position: absolute;
+          left: 5px;
+          right: 5px;
+          top: 30px;
+          line-height: 1.3em;
+          text-transform: uppercase;
+          font-size: 10px;
+          font-weight: normal;
+          text-align: center;
+        }
+
+        &:hover {
+          &:after {
+            display: none;
+          }
+
+          &:before {
+            display: block;
+          }
+        }
+      }
+    }
+
+    // h4 {
+    //   top: 25px;
+    //   left: ($sidebar-width - 50) / 2;
+    //   // > a {
+    //   //   pointer-events: none;
+    //   // }
+
+    //   + ol {
+    //     @extend %tooltip;
+    //     // position: fixed;
+    //     display: none;
+    //     top: 50px;
+    //     right: 93%;
+    //     z-index: 500;
+    //     width: 200px;
+    //     list-style-position: inside;
+    //     @include shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+
+    //     &:after {
+    //       content: '';
+    //       position: absolute;
+    //       right: -8px;
+    //       top: 10px;
+    //       @include triangle(right, 8px, $tooltip-bg);
+    //     }
+    //   }
+
+    //   &:hover + ol {
+    //     display: block !important;
+    //   }
+    // }
+
+    h5 {
+      top: 40px;
+      left: 20px;
+
+      > a {
+        &:after {
+          background-position: $big-icon-network;
+        }
+
+        &:before {
+          content: 'Related Subreddits';
+        }
+      }
+
+      + ul {
+        position: absolute;
+        list-style: none;
+        top: 10px;
+        bottom: 0;
+        left: 100%;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        width: $sidebar-width - 20;
+        text-align: center;
+        transition: left .3s;
+
+        > li {
+          display: inline-block;
+          margin: 10px;
+
+          > a {
+            @extend %big-icon;
+            background-position: $sr-pic-nsfw411;
+            display: block;
+            // width: 55px;
+            // height: 55px;
+            // background: url($sidebar-image) left top no-repeat;
+            font-size: 0;
+            position: relative;
+
+            &:after {
+              content: '';
+              position: absolute;
+              top: -3px;
+              left: -3px;
+              right: -3px;
+              bottom: -3px;
+              background: rgba(0, 0, 0, 0.4);
+              border: solid 3px rgba($accent, 0.4);
+              transition: background-color .2s, border-color .2s;
+              // fuck you, res
+              margin: 0 !important;
+              padding: 0 !important;
+              @include rounded(100%);
+            }
+
+            &:hover {
+              &:after {
+                background-color: transparent;
+                border-color: $accent;
+              }
+            }
+
+            &[href="/r/blowjobs"] {
+              background-position: $sr-pic-blowjobs;
+            }
+
+            &[href="/r/lickingdick"] {
+              background-position: $sr-pic-lickingdick;
+            }
+
+            &[href="/r/blowjobsandwich"] {
+              background-position: $sr-pic-blowjobsandwich;
+            }
+
+            &[href="/r/onherknees"] {
+              background-position: $sr-pic-onherknees;
+            }
+
+            &[href="/r/dreamjobs"] {
+              background-position: $sr-pic-dreamjobs;
+            }
+
+            &[href="/r/pouting"] {
+              background-position: $sr-pic-pouting;
+            }
+
+            &[href="/r/edging"] {
+              background-position: $sr-pic-edging;
+            }
+
+            &[href="/r/ballsucking"] {
+              background-position: $sr-pic-ballsucking;
+            }
+          }
+        }
+      }
+    }
+
+    h6 {
+      top: 60px;
+      right: 50px;
+      text-decoration: none;
+
+      > a{
+        &:after {
+          background-position: $big-icon-bug;
+        }
+
+        &:before {
+          content: 'Report CSS Issues';
+        }
+      }
+    }
+
+  }
+}
+
+#search {
+  margin: 0;
+  position: absolute;
+  z-index: $z-search;
+  // background: rgba(0, 0, 0, 0.6);
+  // top: $sidebar-image-height - 45;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  transition: bottom .5s;
+  // @include linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+  // padding: 50px 10px 10px 10px;
+  // height: 80px;
+  // margin-bottom: 20px;
+
+  input[type=text] {
+    width: 280px;
+    border: none;
+    // border: solid 1px rgba(0, 0, 0, 0.5);
+    padding: 5px 25px 5px 8px;
+    background: rgba(0, 0, 0, 0.4);
+    @include shadow(inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.13));
+  }
+}
+
+#search input[type=text]:focus,
+#searchexpando {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+#header:target + .side {
+  #search {
+    bottom: -100%;
+  }
+
+  .subscribers,
+  .users-online {
+    opacity: 0;
+  }
+
+  .md {
+    // h4,
+    h5,
+    h6 {
+      > a {
+        width: 0;
+        height: 0;
+        opacity: 0;
+
+        &:after,
+        &:before {
+          display: none;
+        }
+      }
+    }
+
+    // h4 + ol {
+    //   display: none;
+    // }
+
+    h5 + ul {
+      left: 0;
+    }
+
+    a[href="#top"] {
+      left: 43%;
+    }
+  }
+}
+
+.submit-link {
+  margin-top: 10px;
+}
+
+#searchexpando {
+  max-height: $sidebar-photo-height - 75;
+  overflow: auto;
+}
+
+#moresearchinfo {
+  border: none;
+}
+
+// #moresearchinfo {
+//   @extend %info-box;
+//   // background: rgba(0, 0, 0, 0.6);
+//   position: absolute;
+//   right: 310px;
+//   top: 0;
+//   z-index: 300;
+//   border: none;
+//   width: 300px;
+//   @include shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+//   // max-height: 190px;
+//   // overflow: auto;
+//   // border: none;
+// }
+
+// .sponsorshipbox {
+//   outline: dashed 1px lighten($main-bg, 10%);
+// }
+
+.linkinfo {
+  @extend %info-box;
+  margin-bottom: 10px;
+
+  .shortlink input {
+    border-color: darken($info-box-bg, 5%);
+  }
+}
+
+.subscribers,
+.users-online {
+  position: absolute;
+  top: $sidebar-photo-height - 80;
+  // width: $sidebar-width / 2;
+  font: normal 14px sans-serif;
+  // display: block;
+  // margin-top: 7px;
+  // text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: opacity .5s;
+  // background: rgba(0, 0, 0, 0.3);
+  // position: absolute;
+  // font-size: smaller;
+  // top: 43px;
+
+  // &:before {
+  //   @extend %small-icon;
+  //   content: '';
+  //   margin-right: 5px;
+  //   opacity: 0.7;
+  // }
+
+  &:before {
+    display: none;
+  }
+
+  .number,
+  .word {
+    display: block;
+  }
+
+  .number {
+    font-size: 2em;
+  }
+}
+
+.users-online {
+  // left: 50%;
+  right: 30px;
+  text-align: right;
+
+  // &:before {
+  //   background-position: $icon-eye;
+  // }
+}
+
+.subscribers {
+  left: 30px;
+  // right: ($sidebar-width / 2) + 10px;
+  // top: 78px;
+  // left: 230px;
+  // margin-left: 15px;
+  // right: 0;
+  // left: $sidebar-width;
+  // z-index: $z-subscribers;
+  // border-left: solid 2px rgba(255, 255, 255, 0.3);
+  // padding: 3px 8px;
+  // background: rgba(0, 0, 0, 0.4);
+  // background: darken($c0c, 45%);
+  // border: solid 1px darken($accent, 40%);
+  // @include rounded(3px);
+  // @include shadow(0 1px 0 lighten($c01, 6%), inset 0 2px 4px darken($c01, 7%));
+  // @include shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+  // padding-left: 13px;
+  // @include line(left);
+}
+
+// .subscribers:before {
+//   background-position: $icon-multi-users;
+// }
+
+.titlebox {
+  clear: left;
+  margin: 10px 0;
+  padding: 20px 0;
+  border-top: solid 3px lighten($main-bg, 6%);
+  // position: relative;
+
+  .redditname {
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // a {
+    //   color: rgba(255, 255, 255, 0.3);
+    // }
+    display: none;
+    // margin-bottom: 10px;
+
+    // a {
+    //   color: $main-fg;
+    //   &:before {
+    //     content: '/r/';
+    //   }
+
+    //   &:hover {
+    //     text-decoration: none;
+    //   }
+    // }
+  }
+
+  form.toggle,
+  .leavemoderator {
+    background: none;
+
+    &:before {
+      @extend %small-icon;
+    }
+  }
+
+  .leavemoderator:before {
+    background-position: $icon-shield;
+  }
+
+  form.leavecontributor-button:before {
+    background-position: $icon-user;
+  }
+
+  .bottom {
+    border-top: none;
+  }
+
+  .age {
+    display: block;
+    float: none;
+  }
+}
+
+// #search {
+//   position: absolute;
+//   z-index: $z-search;
+//   right: 20px;
+//   top: 75px;
+// }
+
+// .subscribe-button {
+//   position: absolute;
+//   top: 75px;
+//   right: 320px;
+//   z-index: $z-search;
+// }
+
+.sidecontentbox {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: solid 3px lighten($main-bg, 6%);
+
+  .collapse-button {
+    background: none;
+    border: none;
+    color: $main-fg;
+    float: right;
+
+    &:before {
+      content: '[';
+    }
+    &:after {
+      content: ']';
+    }
+  }
+
+  .content {
+    border: none;
+  }
+
+  .icon-menu {
+    li {
+      margin: 0;
+    }
+
+    a {
+      background: none;
+      display: block;
+      padding: 4px 8px;
+      border: solid 1px transparent;
+      color: $main-fg;
+      @include rounded(3px);
+
+      &:hover {
+        text-decoration: none;
+        border-color: darken($main-bg, 3%);
+        background: lighten($main-bg, 8%);
+        @include shadow(inset 0 1px 0 lighten($main-bg, 15%));
+      }
+
+      &:before {
+        @extend %small-icon;
+        margin-right: 10px;
+      }
+    }
+
+    .reddit-edit:before {
+      background-position: $icon-multi-cogs;
+    }
+
+    .edit-stylesheet:before {
+      background-position: $icon-code;
+    }
+
+    .community-rules:before {
+      background-position: $icon-gavel;
+    }
+
+    .moderator-mail:before {
+      background-position: $icon-envelope;
+      margin: 0 10px 0 0;
+    }
+
+    .reddit-moderators:before {
+      background-position: $icon-shield;
+    }
+
+    .reddit-contributors:before {
+      background-position: $icon-user;
+    }
+
+    .reddit-traffic:before {
+      background-position: $icon-bar-chart;
+    }
+
+    .reddit-modqueue:before {
+      background-position: $icon-tasks;
+    }
+
+    .reddit-reported:before {
+      background-position: $icon-flag;
+    }
+
+    .reddit-spam:before {
+      background-position: $icon-exclamation;
+    }
+
+    .reddit-edited:before {
+      background-position: $icon-comment;
+    }
+
+    .reddit-ban:before {
+      background-position: $icon-ban;
+    }
+
+    .reddit-mute:before {
+      background-position: $icon-volume-off;
+    }
+
+    .reddit-flair:before {
+      background-position: $icon-tags;
+    }
+
+    .reddit-automod:before {
+      background-position: $icon-bolt;
+    }
+
+    .reddit-moderationlog:before {
+      background-position: $icon-book;
+    }
+
+    .reddit-unmoderated:before {
+      background-position: $icon-hourglass;
+    }
+  }
+}
+
+// res
+.subButtons {
+  padding-top: 10px;
+}

@@ -1,0 +1,328 @@
+%icon {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: transparent !important;
+  background-image: url($sprite-image) !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 0;
+}
+
+%small-icon {
+  @extend %icon;
+  width: 16px;
+  height: 16px;
+}
+
+%medium-icon {
+  @extend %icon;
+  width: 32px;
+  height: 32px;
+}
+
+%big-icon {
+  @extend %icon;
+  width: 55px;
+  height: 55px;
+}
+
+%button-default {
+  display: inline-block;
+  color: $button-fg;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  @include rounded(3px);
+  @include linear-gradient(top, $button-bg, darken($button-bg, 10%));
+  @include shadow(inset 0 1px 0 lighten($button-bg, 10%), 0 1px 2px rgba(0, 0, 0, 0.4));
+}
+
+%button-has-focus {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 2px;
+    right: 2px;
+    top: 2px;
+    bottom: 2px;
+    border: dashed 1px lighten($button-bg, 6%);
+  }
+
+  &:focus:after {
+    display: block;
+  }
+}
+
+%button-hovered {
+  color: $button-fg;
+  text-decoration: none;
+  @include linear-gradient(top, lighten($button-bg, 5%), darken($button-bg, 8%));
+}
+
+%button-pressed {
+  outline: none;
+  @include linear-gradient(top, $button-bg, darken($button-bg, 10%));
+  @include shadow(inset 0 3px 6px darken($button-bg, 20%), 0 1px 0 rgba(255, 255, 255, 0.14));
+}
+
+%button {
+  @extend %button-default;
+  &:hover {
+    @extend %button-hovered ;
+  }
+  &:active {
+    @extend %button-pressed;
+  }
+}
+
+%toggle-button {
+  line-height: 1.3em;
+  padding: 4px 7px;
+  border: none;
+  color: $button-fg;
+  @include rounded(4px);
+
+  &.active {
+    display: inline-block;
+    color: inherit;
+  }
+}
+
+%toggle-button-enable {
+  @include linear-gradient(top, $toggle-button-enable-bg, darken($toggle-button-enable-bg, 8%));
+  @include shadow(inset 0 1px 0 lighten($toggle-button-enable-bg, 7%), 0 2px 2px rgba(0, 0, 0, 0.7));
+}
+
+%toggle-button-disable {
+  @include linear-gradient(top, $toggle-button-disable-bg, darken($toggle-button-disable-bg, 7%));
+  @include shadow(inset 0 3px 5px darken($toggle-button-disable-bg, 20%), 0 1px 0 rgba(255, 255, 255, 0.3));
+}
+
+%header-button {
+  display: inline-block;
+  // @extend %button;
+  padding: 5px 10px;
+  border: solid 1px rgba(0, 0, 0, 0.4);
+  border-bottom-color: rgba(0, 0, 0, 0.6);
+  // @include rounded(4px);
+  @include linear-gradient(top, $header-button-bg, darken($header-button-bg, 8%));
+  @include shadow(inset 0 1px 0 lighten($header-button-bg, 7%));
+}
+
+%header-button-normal {
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    @include shadow(inset 0 2px 3px darken($header-button-bg, 10%), 0 1px 0 rgba(255, 255, 255, 0.15));
+  }
+}
+
+%text-input {
+  background: $input-bg;
+  // @include linear-gradient(top, $input-bg, darken($input-bg, 1%));
+  color: $input-fg;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  @include rounded(3px);
+  @include shadow(0 1px 0 rgba(255, 255, 255, 0.1), inset 0 2px 2px rgba(0, 0, 0, 0.2));
+
+  &:focus {
+    color: $input-focused-fg;
+    background: $input-focused-bg;
+  }
+}
+
+%text-box {
+  @extend %text-input;
+  min-height: 3em;
+  min-width: 15em;
+  padding: 5px;
+}
+
+// %side-box-title {
+//   font-weight: bold;
+//   background: $side-box-title-bg;
+//   border-top: solid 1px lighten($side-box-title-bg, 10%);
+//   padding: 3px 8px;
+//   @include rounded(4px 4px 0 0);
+//   // @include linear-gradient(top, $side-box-title-bg, darken($side-box-title-bg, 6%));
+// }
+
+// %side-box {
+//   background: $c00;
+// }
+
+%flair {
+  display: inline-block;
+  vertical-align: middle;
+  background: darken($c0c, 50%);
+  color: $c03;
+  border: none;
+  padding: 2px 4px;
+  margin: 0 0.3em !important;
+  font-size: 10px;
+  @include rounded(3px);
+
+  &:hover {
+    text-decoration: none;
+    background: darken($c0d, 45%);
+  }
+}
+
+%bubble {
+  background: $bubble-bg;
+  color: $bubble-fg;
+  // margin: 0;
+  // padding: 0;
+  position: relative;
+  @include rounded(3px);
+
+  // &:before {
+  //   content: '';
+  //   position: absolute;
+  //   left: -8px;
+  //   top: 7px;
+  //   @include triangle(left, 8px, $bubble-bg);
+  // }
+}
+
+%bubble-footer {
+  background: lighten($bubble-bg, 4%);
+  padding: 4px 8px;
+  @include rounded(0 0 3px 3px);
+}
+
+%info-box {
+  background: $info-box-bg;
+  border: none;
+  padding: 10px;
+  @include rounded(3px);
+}
+
+%box-base {
+  background: $box-bg;
+  padding: 5px;
+  border: none;
+}
+
+%box {
+  @extend %box-base;
+  @include rounded(3px);
+  @include shadow(inset 0 1px 0 lighten($box-bg, 10%), 0 2px 4px rgba(0, 0, 0, 0.14));
+}
+
+%form-box {
+  background: $form-box-bg;
+  padding: 10px;
+  @include rounded(4px);
+  @include shadow(inset 0 1px 0 lighten($form-box-bg, 6%), 0 2px 4px rgba(0, 0, 0, 0.15));
+  // @extend %box;
+  // background: desaturate(darken($accent, 52%), 23%);
+}
+
+%form-box,
+%form-box-title {
+  border: solid 1px rgba(0, 0, 0, 0.5);
+}
+
+%form-box-title {
+  display: block;
+  color: $main-fg;
+  padding: 5px 10px;
+  margin: 0;
+  font-weight: normal;
+  font-size: 16px;
+  @include rounded(4px 4px 0 0);
+  @include linear-gradient(top, $form-box-title-bg, darken($form-box-title-bg, 4%));
+  // @include linear-gradient(top, lighten($form-box-bg, 5%), lighten($form-box-bg, 1%));
+  @include shadow(inset 0 1px 0 lighten($form-box-title-bg, 10%));
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
+}
+
+%form-box-tab {
+  // background: none;
+  // @extend %box-base;
+  padding: 4px 15px;
+  vertical-align: middle;
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  border-bottom-style: none;
+  color: $form-box-tab-fg;
+  outline: none;
+  position: relative;
+  @include linear-gradient(top, $form-box-tab-bg, darken($form-box-tab-bg, 4%));
+  @include rounded(3px 3px 0 0);
+  @include shadow(inset 0 1px 0 lighten($box-bg, 8%), inset 0 -2px 2px rgba(0, 0, 0, 0.2));
+
+  // &:after {
+  //   position: absolute;
+  //   top: 2px;
+  //   right: 2px;
+  //   bottom: 2px;
+  //   left: 2px;
+  //   border: dashed 1px rgba($form-box-tab-fg, 0.4);
+  // }
+
+  // &:focus:after {
+  //   content: '';
+  // }
+}
+
+%form-box-tab-active {
+  // font-weight: bold;
+  // position: relative;
+  color: $form-box-tab-active-fg;
+  // text-shadow: 0 0 3px $accent;
+  @include linear-gradient(top, lighten($form-box-bg, 5%), $form-box-bg);
+  @include shadow(inset 0 1px 0 lighten($box-bg, 12%));
+
+  &:before {
+    content: '';
+    position: absolute;
+    background: $form-box-bg;
+    height: 3px;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+  }
+}
+
+%menu {
+  background: $menu-bg;
+  color: $menu-fg;
+  padding: 5px 0;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  @include rounded(3px);
+  @include shadow(inset 0 1px 0 lighten($menu-bg, 7%), 0 7px 14px rgba(0, 0, 0, 0.4));
+}
+
+%menu-entry {
+  color: $menu-fg;
+  padding: 3px 10px;
+  &:hover {
+    color: $menu-fg;
+    background: $menu-hover-bg;
+  }
+}
+
+%tooltip {
+  position: absolute;
+  background: $tooltip-bg;
+  color: $tooltip-fg;
+  padding: 1px 5px;
+  @include rounded(3px);
+  @include shadow(0 3px 5px rgba(0, 0, 0, 0.5));
+}
+
+%dropdown {
+  background: $dropdown-bg;
+  border: none;
+}
+
+// %dropdown-item {
+//   background: $dropdown-item-bg;
+// }

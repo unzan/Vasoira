@@ -1,0 +1,51 @@
+@mixin vendor($prop, $value...) {
+  @if $vendor-prefixes > 1 {
+    -webkit-#{$prop}: $value;
+    -moz-#{$prop}: $value;
+  }
+  #{$prop}: $value;
+}
+
+@mixin shadow($shadows...) {
+  @include vendor(box-shadow, $shadows);
+}
+
+@mixin rounded($radius) {
+  @include vendor(border-radius, $radius);
+}
+
+@mixin linear-gradient($definition...) {
+  @if $vendor-prefixes > 0 {
+    background: -webkit-linear-gradient($definition);
+    background: -moz-linear-gradient($definition);
+  }
+  background: linear-gradient($definition);
+}
+
+@mixin triangle($dir, $size, $color) {
+  @each $p, $n in (left, right), (right, left), (top, bottom), (bottom, top) {
+    @if $p == $dir {
+      border-#{$n}: solid $size $color;
+    } @else if $n != $dir {
+      border-#{$p}: solid $size transparent;
+    }
+  }
+}
+
+@mixin line($pos, $color: $main-bg, $amount: 4%) {
+  $dir: null;
+  @if $pos == top {
+    $dir: 0 -1px;
+  } @else if $pos == bottom {
+    $dir: 0 1px;
+  } @else if $pos == left {
+    $dir: -1px 0;
+  } @else if $pos == right {
+    $dir: 1px 0;
+  } @else {
+    @error "Wrong position: #{$pos}"
+  }
+
+  border-#{$pos}: solid 1px darken($color, $amount);
+  @include shadow($dir 0 lighten($color, $amount));
+}

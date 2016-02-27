@@ -1,0 +1,211 @@
+.btn,
+button {
+// .flairselector button,
+// .roundfield button,
+// .usertext button {
+// #REScommentSubToggle { // res
+  @extend %button;
+  padding: 3px 6px;
+  line-height: 1.3em;
+}
+
+.morelink {
+  height: auto;
+  letter-spacing: 0;
+  // float: left;
+  // width: 50%;
+
+  &,
+  &:hover {
+    background: none;
+    border: none;
+  }
+
+  &:hover a {
+    color: $button-fg;
+  }
+
+  .nub {
+    display: none;
+  }
+
+  a {
+    @extend %button;
+    // font-size: 14px;
+    // padding: 5px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    // @include vendor(box-sizing, border-box);
+
+    // &:before {
+    //   @extend %medium-icon;
+    //   content: '';
+    //   display: block;
+    //   margin-left: 30%;
+    // }
+  }
+}
+
+.submit-link {
+  padding-top: 5px;
+  // a {
+  //   @include rounded(3px 0 0 3px);
+  //   &:before {
+  //     background-position: $medium-icon-link;
+  //   }
+  // }
+}
+
+// .submit-text a {
+//   @include rounded(0 3px 3px 0);
+//   &:before {
+//     background-position: $medium-icon-comments;
+//   }
+// }
+
+.subscribe-button {
+  .option {
+    @extend %toggle-button;
+    &.add {
+      @extend %toggle-button-enable;
+    }
+
+    &.remove {
+      @extend %toggle-button-disable;
+    }
+  }
+}
+
+// res
+.subButtons > .res-fancy-toggle-button {
+  @extend %toggle-button;
+  @extend %toggle-button-enable;
+
+  &.remove {
+    @extend %toggle-button-disable;
+  }
+}
+
+// res
+#REScommentSubToggle {
+  @extend %toggle-button;
+  @extend %toggle-button-enable;
+
+  &.unsubscribe {
+    @extend %toggle-button-disable;
+  }
+}
+
+.thing .entry {
+  .expando-button {
+    width: 17px !important;
+    height: 17px !important;
+    position: relative;
+    margin: 2px 5px 2px 0 !important;
+
+    &:after,
+    &:before {
+      position: absolute;
+      background: $button-fg !important;
+    }
+
+    &:before {
+      content: '' !important;
+      left: 4px !important;
+      right: 4px !important;
+      height: 3px !important;
+      top: 7px !important;
+      width: auto !important;
+    }
+
+    &.selftext,
+    &.image, // res
+    &.video-muted, // res
+    &.video {
+      &.collapsed,
+      &.expanded {
+        background-position: center top !important;
+        &:hover {
+          @extend %button-hovered;
+        }
+      }
+
+      &.collapsed {
+        @extend %button-default;
+      }
+
+      &.expanded {
+        @extend %button-default;
+        @extend %button-pressed;
+        margin-bottom: 2px;
+      }
+    }
+
+    // seriously, wtf is wrong with res devs?
+    &.collapsed:not(.expanded) {
+      &:after {
+        content: '';
+        top: 4px;
+        bottom: 4px;
+        left: 7px;
+        width: 3px;
+      }
+    }
+  }
+}
+
+.big-mod-buttons {
+  .pretty-button {
+    @extend %button;
+    line-height: 1.6em;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &.pressed {
+      @extend %button-pressed;
+    }
+
+    &.negative.pressed {
+      @include linear-gradient(top, $action-negative-color, darken($action-negative-color, 5%));
+    }
+
+    &.neutral.pressed {
+      @include linear-gradient(top, $action-neutral-color, darken($action-neutral-color, 5%));
+
+      &[data-event-action="ignorereports"] {
+        @include linear-gradient(top, $action-other-color, darken($action-other-color, 5%));
+      }
+    }
+
+    &.positive.pressed {
+      @include linear-gradient(top, $action-positive-color, darken($action-positive-color, 5%));
+    }
+  }
+}
+
+.comment {
+  .flat-list li.reported-stamp,
+  .big-mod-buttons .pretty-button {
+  // border: solid 1px rgba(0, 0, 0, 0.5);
+    @include shadow(inset 0 1px 0 lighten($button-bg, 10%), 0 1px 2px rgba(0, 0, 0, 0.6));
+  }
+}
+
+.c-btn {
+  @extend %button;
+  &:focus {
+    @extend %button-hovered;
+  }
+}
+
+.c-btn-primary,
+.c-btn-secondary {
+  &:active {
+    // margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+.over18 button {
+  margin: 3px;
+  padding: 4px 8px;
+}

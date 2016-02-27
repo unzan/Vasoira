@@ -1,0 +1,382 @@
+.commentarea {
+  margin-top: 20px;
+  padding-top: 10px;
+  // position: relative;
+  @include line(top, $content-bg);
+
+  .infobar {
+    @extend %info-box;
+    margin: 10px;
+    display: inline-block;
+  }
+
+  .menuarea {
+    margin: 10px;
+  }
+}
+
+.dropdown.lightdrop .selected {
+  text-decoration: none;
+}
+
+.panestack-title {
+  // background: $content-bg;
+  // position: absolute;
+  border-bottom: none;
+  // padding: 10px 30px;
+  // top: -30px;
+  // left: 10px;
+  white-space: nowrap;
+
+  // margin: 20px 0;
+  // margin: 20px 20px 10px 40px;
+  // padding-top: 20px;
+  // border-top: solid 1px darken($content-bg, 4%);
+  // @include shadow(inset 0 1px 0 lighten($content-bg, 4%));
+  // border-top: solid 3px lighten($content-bg, 5%);
+}
+
+.nestedlisting {
+  margin-left: 20px;
+}
+
+.gold-accent.comment-visits-box {
+  background: none;
+  border: none;
+  color: $main-fg;
+  padding: 0;
+}
+
+.comment {
+  > .entry {
+    overflow: visible;
+  }
+
+  &.noncollapsed {
+    > .entry {
+      // @extend %bubble;
+      position: relative;
+      background: $comment-bg;
+      color: $comment-fg;
+      display: inline-block;
+      margin: 10px 20px 0 4px;
+      padding: 0;
+      @include rounded(3px);
+      // @include shadow(inset 0 1px 0 lighten($bubble-bg, 3%), 0 1px 2px darken($content-bg, 2%));
+
+
+      // res
+      &.RES-keyNav-activeElement {
+        background: $bubble-bg !important;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          width: 5px;
+          background: $res-active-element-color;
+          @include rounded(0 3px 3px 0);
+        }
+
+        .md-container {
+          background: none !important;
+        }
+      }
+
+      .tagline {
+        display: block;
+        padding: 6px 12px 6px 8px;
+        // position: relative;
+        // z-index: 1;
+        // @include rounded(3px 3px 0 0);
+      }
+
+      .usertext {
+        padding: 4px 12px 4px 8px;
+        overflow: visible !important;
+      }
+
+      .flat-list {
+        // @extend %bubble-footer;
+        // background: lighten($comment-bg, 4%);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 4px 12px 4px 8px;
+        // position: relative;
+        // z-index: 1;
+        // padding-right: 12px;
+        @include rounded(0 0 3px 3px);
+      }
+    }
+
+    &.stickied {
+      > .entry {
+        &,
+        &.RES-keyNav-activeElement {
+          background-color: $stickied-comment-bg !important;
+        }
+      }
+    }
+
+    &.spam {
+      > .entry {
+        &,
+        &.RES-keyNav-activeElement {
+          background-color: $spam-comment-bg !important;
+        }
+      }
+
+      > .child {
+        background: none;
+      }
+    }
+
+    // &.reported {
+    //   > .entry {
+    //     .flat-list {
+    //     }
+    //   }
+    // }
+  }
+
+  &.collapsed {
+    // .tagline {
+    //   line-height: 1.3em;
+    // }
+
+    .RES-keyNav-activeElement {
+      background: none !important;
+      .tagline {
+        outline: dashed 1px $res-active-element-color;
+      }
+    }
+  }
+
+  &.new-comment {
+    .usertext-body {
+      background: none;
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    // .tagline {
+    //   background: rgba($c08, .1);
+    // }
+
+    .live-timestamp:after {
+      content: 'new';
+      color: $c0a;
+      font-weight: bold;
+      // padding: 0 3px;
+      margin-left: 8px;
+      // display: inline-block;
+      // @include rounded(2px);
+    }
+  }
+
+  .stickied-tagline {
+    float: right;
+    // position: absolute;
+    // right: 10px;
+    // top: 0;
+    background: lighten($stickied-comment-bg, 5%);
+    margin-left: 1em;
+    // margin-top: -8px;
+    // font-weight: bold;
+    // display: inline-block;
+    padding: 1px 4px;
+    @include rounded(3px);
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .tagline .score {
+    color: inherit;
+    font-weight: normal;
+  }
+
+  .midcol {
+    position: absolute;
+    left: -19px;
+    top: 11px;
+    z-index: $z-comment-arrow;
+  }
+
+  // res
+  // form.usertext {
+  //   overflow: visible !important;
+  // }
+
+  .expand {
+    color: inherit;
+  }
+
+  .child {
+    margin: 0 0 0 20px;
+    padding: 0;
+    border-left: none;
+
+    > .listing {
+      border-left: dashed 1px $guide-line-color;
+    }
+  }
+}
+
+.morerecursion,
+.morechildren {
+  a {
+    font-size: small !important;
+    color: darken($link-fg, 14%);
+  }
+}
+
+.morerecursion,
+.morechildren,
+.comment.collapsed {
+  padding: 0;
+  margin: 0 0 0 10px;
+  > .entry {
+    padding-top: 10px;
+  }
+}
+
+.comment {
+  .morerecursion,
+  .morechildren,
+  .child > .listing > .comment:nth-last-child(2) {
+    &:before {
+      content: '';
+      position: absolute;
+      width: 5px;
+      background: $content-bg;
+      left: -13px;
+      bottom: 0;
+    }
+  }
+
+  .child > .listing > .comment:nth-last-child(2):before {
+    top: 27px;
+  }
+
+  .child > .listing > .comment.collapsed:nth-last-child(2):before {
+    top: 20px;
+  }
+
+  .morerecursion:before,
+  .morechildren:before {
+    top: 19px;
+  }
+
+  .morerecursion:after,
+  .morechildren:after,
+  .comment.collapsed > .entry:before,
+  .comment.noncollapsed > .entry:before {
+    content: '';
+    position: absolute;
+    border-bottom: dashed 1px $guide-line-color;
+  }
+
+  .morerecursion:after,
+  .morechildren:after,
+  .comment.collapsed > .entry:before {
+    top: 19px;
+    left: -10px;
+    width: 10px;
+  }
+
+  .comment.noncollapsed > .entry:before {
+    top: 17px;
+    left: -15px;
+    width: 15px;
+  }
+}
+
+// single comment thread.
+// this sucks. 
+.usertext.border {
+  &:after {
+    content: '';
+    position: absolute;
+    right: -14px;
+    top: 6px;
+    @include triangle(left, 9px, $accent);
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    right: -24px;
+    top: 11px;
+    height: 8px;
+    width: 10px;
+    background: $accent;
+  }
+  // z-index: 1;
+  // &:before {
+  //   content: '';
+  //   position: absolute;
+  //   top: -3px;
+  //   left: -3px;
+  //   right: -3px;
+  //   bottom: -3px;
+  //   border: dashed 1px darken($accent, 30%);
+  //   z-index: 0;
+  //   @include rounded(3px);
+  // }
+  // background: rgba($c0a, 0.12);
+  .usertext-body {
+    background: none;
+    padding-left: 0;
+    // outline: dashed 1px $accent;
+  }
+
+  // + .flat-list.buttons {
+  //   background: $comment-single-thread-bg;
+  // }
+}
+
+// res
+.res.res-commentBoxes {
+  .comment {
+    border: none !important;
+    overflow: visible !important;
+    margin: 0 0 0 10px !important;
+    padding: 0 !important;
+  }
+
+  $all_selectors: ();
+  @for $i from 1 to 12 {
+    $selector: ();
+    @for $j from 1 to $i {
+      $selector: append($selector, '.comment', space);
+    }
+    $all_selectors: append($all_selectors, $selector, comma);
+  }
+
+  #{$all_selectors} {
+    background: none !important;
+  }
+}
+
+// res
+// #REScommentSubToggle {
+//   @extend %button;
+// }
+
+// res
+#REScommentNavToggle {
+  .commentNavSortType {
+    // @extend %button;
+    padding: 1px 6px;
+    margin: 0;
+    border-left: none !important;
+  }
+}
+
+.usertext .markhelp table {
+  width: auto !important;
+}

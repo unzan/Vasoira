@@ -1,0 +1,43 @@
+.md {
+  color: $main-fg;
+  font-size: 13px;
+  max-width: 100% !important;
+
+  a {
+    color: $md-link-fg;
+    &,
+    &.imgScanned {
+      &:visited {
+        color: $md-visited-link-fg !important;
+      }
+    }
+  }
+
+  blockquote {
+    color: inherit;
+    padding: 0.5em;
+    margin: 0.6em 0.3em;
+    background: $quote-bg;
+    border-left: solid 3px lighten($quote-bg, 50%);
+  }
+
+  code,
+  pre {
+    border: none;
+    background-color: $code-bg !important;
+  }
+}
+
+.usertext .markhelp {
+  width: $text-box-width;
+  padding: 4px 0;
+  border-top: none;
+
+  tr {
+    background: none !important;
+  }
+
+  .spaces {
+    background: lighten($content-bg, 5%);
+  }
+}

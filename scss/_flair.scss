@@ -1,0 +1,9 @@
+.linkflairlabel {
+  @extend %flair;
+  // padding-top: 4px;
+  // padding-bottom: 4px;
+}
+
+.flair {
+  @extend %flair;
+}

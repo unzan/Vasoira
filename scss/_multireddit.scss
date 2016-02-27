@@ -1,0 +1,46 @@
+// this is only for multi selector popup that appear when you hover
+// the subscribe button. the rest of multireddit are in userstyle
+
+.multi-selector.hover-bubble {
+  @extend %menu;
+  // padding: 5px 0;
+  // color: $main-fg;
+  // border: solid 1px rgba(0, 0, 0, 0.2);
+  // @include shadow(inset 0 1px 0 lighten($box-bg, 10%), 0 7px 14px rgba(0, 0, 0, 0.4));
+
+  &:before {
+    display: none;
+  }
+
+  &:after {
+    top: 57px;
+    border-left-color: $box-bg;
+  }
+
+  strong {
+    color: inherit;
+  }
+
+  label {
+    @extend %menu-entry;
+    padding: 5px 12px;
+    // &:hover {
+    //   background: lighten($box-bg, 4%);
+    // }
+
+    a {
+      @extend %button;
+      width: auto;
+      height: auto;
+      padding: 1px 4px;
+      border: solid 1px darken($box-bg, 5%);
+      @include shadow(inset 0 1px 0 lighten($button-bg, 10%));
+    }
+  }
+
+  .create-multi {
+    input[type="text"] {
+      @extend %text-input;
+    }
+  }
+}

@@ -1,0 +1,415 @@
+#header {
+  border-bottom: none;
+  z-index: $z-header;
+  @include linear-gradient(top, $header-bg, darken($header-bg, 12%));
+}
+
+#sr-header-area {
+  background: rgba(0, 0, 0, 0.4);
+  color: $main-fg;
+  border: none;
+
+  // res
+  #RESShortcuts > .RESShortcutsCurrentSub {
+    color: $accent !important;
+  }
+}
+
+.sr-bar a {
+  color: $main-fg;
+}
+
+.srdrop {
+  .title {
+    color: inherit !important;
+  }
+}
+
+#sr-more-link {
+  background: $c00;
+  color: inherit;
+}
+
+#header-bottom-right {
+  font-size: 0;
+  background: none;
+  bottom: 7px !important;
+  right: 10px;
+  top: auto !important;
+  vertical-align: middle;
+  padding: 0;
+
+  .separator {
+    display: none !important;
+  }
+
+  #userbarToggle, // res
+  #RESSettingsButton, // res
+  .beta-link,
+  .user,
+  #mail,
+  #modmail,
+  .pref-lang,
+  .logout > a {
+    @extend %header-button;
+    vertical-align: middle;
+    border-right-style: none;
+  }
+
+  #RESSettingsButton, // res
+  .beta-link,
+  #mail,
+  #modmail,
+  .pref-lang,
+  .logout > a {
+    @extend %header-button-normal;
+    position: static;
+    margin: 0;
+    vertical-align: middle;
+    text-indent: 0;
+    line-height: 0;
+    height: auto;
+    width: auto;
+    overflow: visible;
+    &:before {
+      @extend %small-icon;
+      content: '';
+    }
+  }
+
+  .logout > a {
+    border-right-style: solid;
+    @include rounded(0 4px 4px 0);
+  }
+
+  // res
+  &.res-userbar-toggle {
+    > .user {
+      margin-left: 0 !important;
+    }
+  }
+
+  // res
+  #userbarToggle {
+    @extend %header-button-normal;
+    height: auto;
+    min-height: 0;
+    top: 0;
+    bottom: 0;
+    left: auto !important;
+    right: 100% !important;
+    color: $header-fg !important;
+    // position: static !important;
+    margin: 0;
+    width: auto;
+    line-height: inherit;
+    font-size: small;
+
+    &.userbarShow {
+      right: -10px !important;
+      top: -28px !important;
+    }
+  }
+
+  // res
+  #RESAccountSwitcherIcon,
+  #RESAccountSwitcherIconOverlay {
+    @extend %small-icon;
+    background-position: $icon-caret-down;
+  }
+
+  .user > a,
+  .userkarma {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 10px;
+    font-weight: bold;
+    color: $header-fg;
+  }
+
+  .userkarma {
+    padding: 2px 5px;
+    background: rgba(0, 0, 0, 0.3);
+    margin-left: 6px;
+    @include rounded(3px);
+  }
+
+  .beta-hint:first-child .beta-link,
+  #userbarToggle, // res
+  .user:first-child {
+    @include rounded(4px 0 0 4px);
+  }
+
+  .beta-link:before {
+    background-position: $icon-flask;
+  }
+
+  .pref-lang:before {
+    background-position: $icon-wrench;
+  }
+
+  // res
+  #RESSettingsButton {
+    cursor: pointer;
+    &.gearIcon {
+      &:before {
+        background-position: $icon-cog;
+      }
+
+      &.newNotification:before {
+        position: static !important;
+        background-position: $icon-cog-active;
+      }
+    }
+  }
+
+  .logout > a:before {
+    background-position: $icon-power-off;
+  }
+
+
+  #mail {
+    &.nohavemail:before {
+      background-position: $icon-envelope;
+    }
+
+    &.havemail:before {
+      background-position: $icon-envelope-active;
+    }
+  }
+
+  #modmail{
+    &.nohavemail:before {
+      background-position: $icon-snoo;
+    }
+
+    &.havemail:before {
+      background-position: $icon-snoo-active;
+    }
+  }
+
+}
+
+.beta-hint {
+  height: auto;
+  position: static;
+  opacity: 1;
+  float: left;
+}
+
+.message-count {
+  @extend %tooltip;
+  margin-left: -18px;
+  top: -5px;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 4px;
+    @include triangle(bottom,  3px, $tooltip-bg);
+  }
+}
+
+// jesus fucking christ, res. you fucking sucks!
+.nohavemail + .message-count {
+  display: none !important;
+}
+
+#header-bottom-left {
+  position: relative;
+  border-top: solid 1px lighten($c01, 13%);
+  margin-top: $header-height;
+  height: 40px;
+  @include linear-gradient(top, $c01, darken($c01, 4%));
+  @include shadow(0 1px 2px darken($c00, 4%));
+}
+
+#header-img.default-header,
+#header-img-a {
+  @extend %header-button;
+  font-size: 0;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 10px;
+  top: -16px;
+  padding: 5px;
+  @include rounded(100%);
+}
+
+#header-img {
+  margin: 0 !important;
+
+  &.default-header:before {
+    content: '';
+    width: 60px;
+    height: 60px;
+    display: block;
+    background: url($logo-image);
+  }
+}
+
+.pagename {
+  // display: none;
+  position: absolute;
+  left: 90px;
+  top: 3px;
+  // text-indent: -100%;
+  font-size: 0;
+  // font-variant: normal;
+  // font-weight: normal;
+  
+  a {
+    display: block;
+    width: 138px;
+    height: 32px;
+    // opacity: 0.7;
+    background: url($sprite-image) 0 -368px no-repeat;
+    // &:hover {
+    //   opacity: 1;
+    // }
+  }
+  // font: bold 0 sans-serif;
+
+  // a {
+  //   // font-size: 20px;
+  //   color: $header-fg;
+
+  //   &:before,
+  //   &:after {
+  //     font-size: 20px;
+  //   }
+
+  //   &:before {
+  //     content: 'COCK';
+  //   }
+
+  //   &:after {
+  //     content: 'KISSES';
+  //     margin-left: 0.3em;
+  //   }
+
+  //   &:hover {
+  //     text-decoration: none;
+  //     background-position: 0 -135px;
+  //   }
+  // }
+}
+
+#header .tabmenu {
+  display: block;
+  padding: 0 20px;
+  position: absolute;
+  bottom: 100%;
+  left: 70px;
+
+  li {
+    display: block;
+    float: left;
+    position: relative;
+    a {
+      color: $header-fg;
+      font-weight: normal;
+      background: none;
+      padding: 8px 20px;
+      display: block;
+      @include rounded(4px 4px 0 0);
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &.selected {
+      a {
+        color: $header-fg;
+        font-weight: bold;
+        border: none;
+        border-top: solid 1px lighten($c01, 13%);
+        @include linear-gradient(top, lighten($c01, 6%), $c01);
+      }
+
+      &:after {
+        content: '';
+        background: $c01;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+      }
+    }
+  }
+}
+
+.hover-bubble.help-bubble {
+  @extend %tooltip;
+  border: none;
+
+  &.anchor-top {
+    &:before {
+      display: none;
+    }
+
+    &:after {
+      border-bottom-color: $tooltip-bg;
+    }
+  }
+}
+
+// res
+#RESAccountSwitcherDropdown {
+  background: darken($header-button-bg, 8%);
+  // @extend %menu;
+  margin-top: 2px !important;
+  border: none;
+  padding-top: 5px;
+  @include rounded(0 0 3px 3px);
+  @include shadow(0 7px 14px rgba(0, 0, 0, 0.5));
+
+  &:before {
+    content: '';
+    position: absolute;
+    height: 4px;
+    left: 0;
+    right: 0;
+    top: 0;
+    @include linear-gradient(top, darken($header-button-bg, 13%), darken($header-button-bg, 8%));
+  }
+  // z-index: $z-menu;
+
+  li {
+    @extend %menu-entry;
+    border: none;
+    color: inherit;
+    > span {
+      font-weight: normal;
+    }
+  }
+}
+
+#RESAccountSwitcherIconOverlay {
+  background: none;
+  border: none;
+  // @extend %small-icon;
+  // background-position: $icon-caret-down;
+}
+
+// res
+.res #srList {
+  @extend %menu;
+
+  tr {
+    @extend %menu-entry;
+    border-bottom: none;
+  }
+}
+
+#RESShortcutsEditContainer {
+  &,
+  & > div {
+    background-color: $c00 !important;
+    color: inherit !important;
+  }
+}

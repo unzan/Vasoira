@@ -1,0 +1,32 @@
+body {
+  background: $main-bg;
+  color: $main-fg;
+
+  > div.content {
+    position: relative;
+    background: $content-bg;
+    clear: left;
+    margin: 0;
+    padding: 10px 0 20px 0;
+    overflow: hidden;
+    border-right: solid 1px darken($main-bg, 3%);
+    border-bottom: solid 1px darken($main-bg, 3%);
+    @include shadow(inset -1px 0 0 lighten($content-bg, 4%), inset 0 -1px 0 lighten($content-bg, 4%));
+  }
+
+  // &,
+  // > div.content {
+  //   > .c-submit-group,
+  //   > .report-reason-list {
+  //     display: none;
+  //   }
+  // }
+}
+
+a {
+  color: $link-fg;
+}
+
+.error {
+  color: $c08;
+}
