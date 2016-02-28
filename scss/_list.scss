@@ -12,6 +12,10 @@
   }
 }
 
+.content > .menuarea {
+  @include line(bottom, $content-bg);
+}
+
 .link {
   padding: 0 0 0 5px;
   margin: 15px 10px 10px 0;
@@ -20,7 +24,7 @@
     content: '';
     position: absolute;
     left: -9px;
-    top: 15px;
+    top: 17px;
     width: 7px;
     height: 7px;
     background: $guide-line-color;
@@ -92,7 +96,7 @@
     font-size: 15px;
     font-weight: bold;
     left: -45px;
-    top: 15px;
+    top: 17px;
     margin: 0 !important;
     width: 33px !important;
     // margin: 17px 0 0 5px;

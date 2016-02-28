@@ -25,20 +25,30 @@
 
 .RESMacroWrappingSpan,
 .commentingAs {
-  margin: 4px;
+  margin: 4px !important;
 }
 
-.highlightedAltAccount {
-  font-weight: normal;
-  font-style: italic;
+.RESMacroWrappingSpan {
+  padding: 2px;
+}
+
+.commentingAs {
+  &.highlightedAltAccount {
+    font-weight: normal !important;
+    font-style: italic;
+  }
+
+  .commentingAsUser {
+    font-size: small;
+  }
 }
 
 .res {
-  .usertext-edit {
-    max-width: 100% !important;
-    width: auto !important;
-    display: inline-block;
-  }
+  // .usertext-edit {
+  //   max-width: 100% !important;
+  //   width: auto !important;
+  //   display: inline-block;
+  // }
 
   .markdownEditor-wrapper {
     border: solid 1px rgba(0, 0, 0, 0.6);
@@ -105,6 +115,10 @@
         &:before {
           @extend %small-icon;
           content: "";
+        }
+
+        > b {
+          margin: 0;
         }
 
         &.btn-bold:before {

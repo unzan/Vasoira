@@ -508,6 +508,7 @@
 
   .bottom {
     border-top: none;
+    margin-top: 2em;
   }
 
   .age {
@@ -653,4 +654,8 @@
 // res
 .subButtons {
   padding-top: 10px;
+}
+
+.sidebox .spacer {
+  background: none;
 }

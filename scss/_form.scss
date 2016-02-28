@@ -136,8 +136,14 @@ textarea {
   @extend %menu-entry;
 }
 
-.usertext-edit {
-  width: auto;
+.usertext-edit.md-container {
+  display: inline-block;
+  width: auto !important;
+  max-width: 100% !important;
+
+  > .md {
+    padding: 0;
+  }
 }
 
 .linefield {
