@@ -190,6 +190,22 @@
 
 }
 
+body:not(.loggedin) #header-bottom-right {
+  .user {
+    // font-size: 10px;
+    min-height: 16px;
+    // vertical-align: bottom;
+
+    a {
+      color: $link-fg;
+    }
+  }
+
+  .pref-lang:before {
+    background-position: $icon-language;
+  }
+}
+
 .beta-hint {
   height: auto;
   position: static;
@@ -358,11 +374,47 @@
   }
 }
 
+#RESAccountSwitcherDropdown {
+  margin-top: 2px !important;
+}
+
+.RESHoverDropdownList.RESDropdownList {
+  margin-top: -2px !important;
+  li a {
+    color: inherit !important;
+    &:hover {
+      background: none;
+    }
+  }
+
+  .toggleButton {
+    &:before {
+      display: none;
+    }
+
+    > span {
+      @extend %header-button;
+      @extend %header-button-normal;
+      padding: 2px;
+
+      &.toggleOn {
+        border-right: none;
+      }
+    }
+
+    &.enabled > .toggleOn,
+    &:not(.enabled) > .toggleOff {
+      @extend %header-button-pressed;
+      color: $accent !important;
+    }
+  }
+}
+
 // res
+.RESHoverDropdownList.RESDropdownList,
 #RESAccountSwitcherDropdown {
   background: darken($header-button-bg, 8%);
   // @extend %menu;
-  margin-top: 2px !important;
   border: none;
   padding-top: 5px;
   @include rounded(0 0 3px 3px);
@@ -389,20 +441,21 @@
   }
 }
 
-#RESAccountSwitcherIconOverlay {
-  background: none;
-  border: none;
-  // @extend %small-icon;
-  // background-position: $icon-caret-down;
-}
+.res {
+  #RESAccountSwitcherIconOverlay {
+    background: none !important;
+    border: none !important;
+    // @extend %small-icon;
+    // background-position: $icon-caret-down;
+  }
 
-// res
-.res #srList {
-  @extend %menu;
+  #srList {
+    @extend %menu;
 
-  tr {
-    @extend %menu-entry;
-    border-bottom: none;
+    tr {
+      @extend %menu-entry;
+      border-bottom: none;
+    }
   }
 }
 
