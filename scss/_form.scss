@@ -1,6 +1,8 @@
 .roundfield input[type=url],
 .roundfield input[type=text],
 .pretty-form input[type=text],
+// .login-form-side input[type=text],
+// .login-form-side input[type=password],
 input[type=password],
 input[type=text] {
   @extend %text-input;
@@ -270,3 +272,34 @@ textarea {
 //     }
 //   }
 // }
+
+.login-form-side {
+  @extend %form-box;
+  padding: 3px;
+
+  input[type=text],
+  input[type=password] {
+    border-color: rgba(0, 0, 0, 0.3);
+    width: 137px;
+    margin-bottom: 5px;
+    // border-color: darken($main-bg, 4%);
+  }
+}
+
+.post-sharing {
+  @extend %form-box;
+  margin-bottom: 5px;
+  .post-sharing-option {
+    .c-tooltip {
+      @extend %tooltip;
+      .tooltip-inner {
+        background: none;
+        border: none;
+      }
+
+      .tooltip-arrow {
+        border-top-color: $tooltip-bg;
+      }
+    }
+  }
+}

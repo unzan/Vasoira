@@ -305,3 +305,19 @@ ul.report-reasons {
     color: $main-fg;
   }
 }
+
+.domain {
+  font-size: 0;
+  > a {
+    font-size: 10px;
+    padding: 2px 4px;
+    background: lighten($content-bg, 5%);
+    margin: 0;
+    vertical-align: bottom;
+
+    &:hover {
+      text-decoration: none;
+      color: lighten($main-fg, 20%);
+    }
+  }
+}
