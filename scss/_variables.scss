@@ -91,6 +91,7 @@ $locked-post-bg: darken($c08, 40%);
 // $archived-post-bg: desaturate(darken($c0a, 50%), 30%);
 
 $box-bg: lighten($content-bg, 5%);
+$box-fg: $main-fg;
 // $form-box-bg: desaturate(darken($accent, 52%), 23%);
 $form-box-bg: lighten($content-bg, 2%);
 $form-box-title-bg: desaturate(darken($accent, 50%), 13%);
@@ -101,8 +102,8 @@ $info-box-bg: darken($accent, 50%);
 $menu-bg: $box-bg;
 $menu-fg: $main-fg;
 $menu-hover-bg: darken($accent, 40%);
-$bubble-bg: $box-bg;
-$bubble-fg: $main-fg;
+// $bubble-bg: $box-bg;
+// $bubble-fg: $main-fg;
 // $guide-line-color: darken($accent, 40%);
 $guide-line-color: lighten($content-bg, 7%);
 $comment-bg: $box-bg;

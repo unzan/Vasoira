@@ -195,6 +195,12 @@ button {
   &:focus {
     @extend %button-hovered;
   }
+
+  &[disabled] {
+    color: darken($button-bg, 20%);
+    text-shadow: 1px 1px 1px lighten($button-bg, 15%);
+    @include shadow(inset 0 1px 0 lighten($button-bg, 10%), 0 1px 2px rgba(0, 0, 0, 0.4));
+  }
 }
 
 .c-btn-primary,

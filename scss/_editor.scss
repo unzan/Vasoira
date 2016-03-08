@@ -177,7 +177,7 @@
 // }
 
 .RESDialogSmall.livePreview {
-  @extend %bubble;
+  @extend %text-container;
   border: none;
   width: $text-box-width !important;
   // position: absolute;
@@ -187,9 +187,9 @@
   // @include shadow(0 3px 7px rgba(0, 0, 0, 0.3));
 
   > h3 {
-    background: lighten($bubble-bg, 5%);
+    background: lighten($box-bg, 5%);
     border: none;
-    color: $bubble-fg;
+    color: $box-fg;
     @include rounded(3px 3px 0 0);
   }
 

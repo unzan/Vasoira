@@ -103,7 +103,7 @@
   }
 
   .usertext-body .md {
-    @extend %bubble;
+    @extend %text-container;
     border: none;
     padding: 10px;
   }
@@ -260,7 +260,7 @@
 }
 
 ul.report-reasons {
-  @extend %bubble;
+  @extend %text-container;
   border: none;
 }
 
