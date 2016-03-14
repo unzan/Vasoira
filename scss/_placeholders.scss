@@ -319,6 +319,30 @@
   border: none;
 }
 
+%comment-box {
+  position: relative;
+  background: $comment-bg;
+  color: $comment-fg;
+  display: inline-block;
+  margin: 10px 20px 0 4px;
+  padding: 0 !important;
+  @include rounded(3px);
+
+  .tagline {
+    display: block;
+    padding: 6px 12px 6px 8px;
+    // position: relative;
+    // z-index: 1;
+    // @include rounded(3px 3px 0 0);
+  }
+
+  .flat-list {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 12px 4px 8px;
+    @include rounded(0 0 3px 3px);
+  }
+}
+
 // %dropdown-item {
 //   background: $dropdown-item-bg;
 // }

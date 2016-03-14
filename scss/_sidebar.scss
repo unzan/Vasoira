@@ -279,7 +279,7 @@
   }
 }
 
-#search {
+.side #search {
   margin: 0;
   position: absolute;
   z-index: $z-search;
@@ -305,8 +305,8 @@
   }
 }
 
-#search input[type=text]:focus,
-#searchexpando {
+.side #search input[type=text]:focus,
+.side #searchexpando {
   background: rgba(0, 0, 0, 0.8);
 }
 

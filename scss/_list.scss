@@ -167,6 +167,17 @@
     &.moderator {
       color: $mod-link-fg;
     }
+
+    &.admin {
+      color: $admin-link-fg;
+    }
+  }
+
+  a,
+  span {
+    &.alum {
+      color: $alum-link-fg;
+    }
   }
 
   .stickied-tagline {
@@ -179,22 +190,26 @@
   padding: 0 4px;
   @include rounded(2px);
 
+  &.submitter {
+    background-color: darken($author-link-fg, 30%) !important;
+  }
+
   &.moderator {
     background-color: darken($mod-link-fg, 25%) !important;
   }
 
-  &.submitter {
-    background-color: darken($author-link-fg, 30%) !important;
+  &.admin {
+    background-color: darken($admin-link-fg, 30%) !important;
+  }
+
+  &.alum {
+    background-color: darken($alum-link-fg, 30%) !important;
   }
 }
 
 .thumbnail {
-  // width: 78px;
   margin: 3px 10px 0 0;
   font-size: small;
-  // padding: 5px;
-  // background: desaturate(darken($accent, 40%), 20%);
-  // @include shadow(inset 1px 1px 0 lighten($content-bg, 15%));
 
   &.self {
     display: none;
@@ -210,27 +225,11 @@
 
   img {
     display: block;
-    // @include shadow(1px 2px 2px darken($content-bg, 5%));
   }
 }
 
 
 .nsfw-stamp {
-  // background: none;
-  // border: none;
-  // padding: 0;
-  // display: inline;
-  // color: $nsfw-tag-fg;
-  // text-transform: lowercase;
-  // font-size: small;
-
-  // &:before {
-  //   content: '[';
-  // }
-
-  // &:after {
-  //   content: ']';
-  // }
   border: none;
   color: $nsfw-tag-fg;
   background: $nsfw-tag-bg;
@@ -252,8 +251,6 @@
 
     &.reported-stamp {
       @extend %button;
-      // outline: dashed 1px $c0a;
-      // font-weight: bold;
       border: none !important;
     }
   }
@@ -286,10 +283,6 @@ ul.report-reasons {
   &.locked-infobar {
     background-color: $locked-post-bg;
   }
-
-  // &.archived-infobar {
-  //   background-color: $archived-post-bg;
-  // }
 
   &.with-icon {
     &:before {
