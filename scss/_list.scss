@@ -217,7 +217,7 @@
 
   &.default,
   &.nsfw {
-    background: none;
+    background: lighten($content-bg, 3%);
     color: darken($main-fg, 30%);
     border: dashed 1px lighten($content-bg, 10%);
     // display: none;

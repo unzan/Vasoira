@@ -234,11 +234,11 @@ body:not(.loggedin) #header-bottom-right {
 
 #header-bottom-left {
   position: relative;
-  border-top: solid 1px lighten($c01, 13%);
+  border-top: solid 1px lighten($header-bar-bg, 13%);
   margin-top: $header-height;
   height: 40px;
-  @include linear-gradient(top, $c01, darken($c01, 4%));
-  @include shadow(0 1px 2px darken($c00, 4%));
+  @include linear-gradient(top, $header-bar-bg, darken($header-bar-bg, 4%));
+  @include shadow(0 1px 2px darken($main-bg, 3%));
 }
 
 #header-img.default-header,
@@ -342,13 +342,13 @@ body:not(.loggedin) #header-bottom-right {
         color: $header-fg;
         font-weight: bold;
         border: none;
-        border-top: solid 1px lighten($c01, 13%);
-        @include linear-gradient(top, lighten($c01, 6%), $c01);
+        border-top: solid 1px lighten($header-bar-bg, 13%);
+        @include linear-gradient(top, lighten($header-bar-bg, 6%), $header-bar-bg);
       }
 
       &:after {
         content: '';
-        background: $c01;
+        background: $header-bar-bg;
         position: absolute;
         bottom: -2px;
         left: 0;
